@@ -8,7 +8,7 @@
 # Dépendant :
 # sudo apt install cuetools shntool flac
 
-# Sliper le fichier
+# Découper le fichier
 echo "|Extraction des fichiers|"
 cuebreakpoints "$1" | shnsplit -o flac "$2"
 # Récupérer les méta donnée du flac
