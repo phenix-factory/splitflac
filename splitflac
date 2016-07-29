@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# Ce script facilite l'extraction de fichier flac + cue
+# Il ajoute également tout seul les métadonnées pour importation
+
+# Exemple : splitflac fichier.cue fichier.flac
+
+# Dépendant :
+# sudo apt install cuetools shntool flac
+
+# Sliper le fichier
+echo "|Extraction des fichiers|"
+cuebreakpoints "$1" | shnsplit -o flac "$2"
+# Récupérer les méta donnée du flac
+echo "|Extraction des métadonnées|"
+cuetag "$1" split-track*.flac
